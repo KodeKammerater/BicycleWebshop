@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using BicycleWebshop.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<BicycleWebshopContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BicycleWebshopContext") ?? throw new InvalidOperationException("Connection string 'BicycleWebshopContext' not found.")));
 
 var app = builder.Build();
 
