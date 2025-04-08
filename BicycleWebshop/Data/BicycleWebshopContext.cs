@@ -18,5 +18,6 @@ namespace BicycleWebshop.Data
         public DbSet<BicycleWebshop.Models.Customer> Customer { get; set; } = default!;
         public DbSet<BicycleWebshop.Models.Order> Order { get; set; } = default!;
         public DbSet<BicycleWebshop.Models.Payment> Payment { get; set; } = default!;
+        public DbSet<BicycleWebshop.Models.OrderLine> OrderLine { get; set; } = default!;
     }
 }
