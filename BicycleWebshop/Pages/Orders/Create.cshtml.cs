@@ -21,7 +21,7 @@ namespace BicycleWebshop.Pages.Orders
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerID"] = new SelectList(_context.Customer, "Id", "Id");
+            ViewData["CustomerID"] = new SelectList(_context.Customer, "Id", "Id");
             return Page();
         }
 
@@ -31,10 +31,10 @@ namespace BicycleWebshop.Pages.Orders
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid) // hvis formen ikke er gyldig
+            //{
+            //    return Page();
+            //}
 
             _context.Order.Add(Order);
             await _context.SaveChangesAsync();

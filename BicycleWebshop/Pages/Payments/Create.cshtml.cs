@@ -21,7 +21,7 @@ namespace BicycleWebshop.Pages.Payments
 
         public IActionResult OnGet()
         {
-        ViewData["OrderID"] = new SelectList(_context.Order, "OrderID", "OrderID");
+            ViewData["OrderID"] = new SelectList(_context.Order, "OrderID", "OrderID");
             return Page();
         }
 
@@ -31,10 +31,10 @@ namespace BicycleWebshop.Pages.Payments
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             _context.Payment.Add(Payment);
             await _context.SaveChangesAsync();
