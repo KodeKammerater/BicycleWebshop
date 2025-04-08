@@ -24,7 +24,7 @@ namespace BicycleWebshop.Pages.Customer
         }
 
         [BindProperty]
-        public Customer Customer { get; set; } = default!;
+        public BicycleWebshop.Models.Customer Customer { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()

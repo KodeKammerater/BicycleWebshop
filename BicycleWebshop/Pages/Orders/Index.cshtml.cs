@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BicycleWebshop.Data;
+using BicycleWebshop.Models;
 
-namespace BicycleWebshop.Pages.Customer
+namespace BicycleWebshop.Pages.Orders
 {
     public class IndexModel : PageModel
     {
@@ -18,11 +19,12 @@ namespace BicycleWebshop.Pages.Customer
             _context = context;
         }
 
-        public IList<Customer> Customer { get;set; } = default!;
+        public IList<Order> Order { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Customer = await _context.Customer.ToListAsync();
+            Order = await _context.Order
+                .Include(o => o.Customer).ToListAsync();
         }
     }
 }

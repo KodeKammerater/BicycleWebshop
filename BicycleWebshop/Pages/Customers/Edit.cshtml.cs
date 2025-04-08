@@ -20,7 +20,7 @@ namespace BicycleWebshop.Pages.Customer
         }
 
         [BindProperty]
-        public Customer Customer { get; set; } = default!;
+        public BicycleWebshop.Models.Customer Customer { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
