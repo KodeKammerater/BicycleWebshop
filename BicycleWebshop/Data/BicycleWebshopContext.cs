@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BicycleWebshop.Models;
-using BicycleWebshop.Pages.Customer;
 
 namespace BicycleWebshop.Data
 {
@@ -16,6 +15,6 @@ namespace BicycleWebshop.Data
         }
 
         public DbSet<BicycleWebshop.Models.Bicycle> Bicycle { get; set; } = default!;
-        public DbSet<BicycleWebshop.Pages.Customer.Customer> Customer { get; set; } = default!;
+        public DbSet<Customer> Customer { get; set; } = default!;
     }
 }

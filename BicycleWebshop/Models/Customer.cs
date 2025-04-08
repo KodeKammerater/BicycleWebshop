@@ -1,4 +1,4 @@
-﻿namespace BicycleWebshop.Pages.Customer
+﻿namespace BicycleWebshop.Models
 {
     public class Customer
     {
