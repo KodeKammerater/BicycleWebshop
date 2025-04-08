@@ -9,16 +9,17 @@ using BicycleWebshop.Data;
 
 namespace BicycleWebshop.Pages.Customer
 {
-    public class DetailsModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly BicycleWebshop.Data.BicycleWebshopContext _context;
 
-        public DetailsModel(BicycleWebshop.Data.BicycleWebshopContext context)
+        public DeleteModel(BicycleWebshop.Data.BicycleWebshopContext context)
         {
             _context = context;
         }
 
-        public Customer Customer { get; set; } = default!;
+        [BindProperty]
+        public BicycleWebshop.Models.Customer Customer { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -37,6 +38,24 @@ namespace BicycleWebshop.Pages.Customer
             }
 
             return NotFound();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var customer = await _context.Customer.FindAsync(id);
+            if (customer != null)
+            {
+                Customer = customer;
+                _context.Customer.Remove(Customer);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }
